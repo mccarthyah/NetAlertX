@@ -19,57 +19,11 @@ services:
       # (API: OPTION 1) use for performance
       - type: tmpfs
         target: /app/api
-      # (API: OPTION 2) use when debugging issues 
-      # - ${DEV_LOCATION}/api:/app/api
-      # ---------------------------------------------------------------------------
-      # DELETE START anyone trying to use this file: comment out / delete BELOW lines, they are only for development purposes
-      - ${APP_DATA_LOCATION}/netalertx/dhcp_samples/dhcp1.leases:/mnt/dhcp1.leases
-      - ${APP_DATA_LOCATION}/netalertx/dhcp_samples/dhcp2.leases:/mnt/dhcp2.leases      
-      - ${APP_DATA_LOCATION}/netalertx/dhcp_samples/pihole_dhcp_full.leases:/etc/pihole/dhcp.leases      
-      - ${APP_DATA_LOCATION}/netalertx/dhcp_samples/pihole_dhcp_2.leases:/etc/pihole/dhcp2.leases      
-      - ${APP_DATA_LOCATION}/pihole/etc-pihole/pihole-FTL.db:/etc/pihole/pihole-FTL.db    
-      - ${DEV_LOCATION}/server:/app/server            
-      - ${DEV_LOCATION}/test:/app/test            
-      - ${DEV_LOCATION}/dockerfiles:/app/dockerfiles
-      # - ${APP_DATA_LOCATION}/netalertx/php.ini:/etc/php/8.2/fpm/php.ini      
-      - ${DEV_LOCATION}/install:/app/install
-      - ${DEV_LOCATION}/front/css:/app/front/css
-      - ${DEV_LOCATION}/front/img:/app/front/img
-      - ${DEV_LOCATION}/back/update_vendors.sh:/app/back/update_vendors.sh
-      - ${DEV_LOCATION}/front/lib:/app/front/lib
-      - ${DEV_LOCATION}/front/js:/app/front/js
-      - ${DEV_LOCATION}/front/php:/app/front/php      
-      - ${DEV_LOCATION}/front/deviceDetails.php:/app/front/deviceDetails.php
-      - ${DEV_LOCATION}/front/deviceDetailsEdit.php:/app/front/deviceDetailsEdit.php
-      - ${DEV_LOCATION}/front/userNotifications.php:/app/front/userNotifications.php
-      - ${DEV_LOCATION}/front/deviceDetailsTools.php:/app/front/deviceDetailsTools.php
-      - ${DEV_LOCATION}/front/deviceDetailsPresence.php:/app/front/deviceDetailsPresence.php
-      - ${DEV_LOCATION}/front/deviceDetailsSessions.php:/app/front/deviceDetailsSessions.php
-      - ${DEV_LOCATION}/front/deviceDetailsEvents.php:/app/front/deviceDetailsEvents.php
-      - ${DEV_LOCATION}/front/devices.php:/app/front/devices.php
-      - ${DEV_LOCATION}/front/events.php:/app/front/events.php
-      - ${DEV_LOCATION}/front/plugins.php:/app/front/plugins.php
-      - ${DEV_LOCATION}/front/pluginsCore.php:/app/front/pluginsCore.php
-      - ${DEV_LOCATION}/front/help_faq.php:/app/front/help_faq.php
-      - ${DEV_LOCATION}/front/index.php:/app/front/index.php
-      - ${DEV_LOCATION}/front/maintenance.php:/app/front/maintenance.php
-      - ${DEV_LOCATION}/front/network.php:/app/front/network.php
-      - ${DEV_LOCATION}/front/presence.php:/app/front/presence.php
-      - ${DEV_LOCATION}/front/settings.php:/app/front/settings.php      
-      - ${DEV_LOCATION}/front/systeminfo.php:/app/front/systeminfo.php      
-      - ${DEV_LOCATION}/front/cloud_services.php:/app/front/cloud_services.php      
-      - ${DEV_LOCATION}/front/report.php:/app/front/report.php      
-      - ${DEV_LOCATION}/front/workflows.php:/app/front/workflows.php      
-      - ${DEV_LOCATION}/front/appEventsCore.php:/app/front/appEventsCore.php      
-      - ${DEV_LOCATION}/front/multiEditCore.php:/app/front/multiEditCore.php      
-      - ${DEV_LOCATION}/front/plugins:/app/front/plugins      
-      # DELETE END anyone trying to use this file: comment out / delete ABOVE lines, they are only for development purposes
-      # ---------------------------------------------------------------------------
     environment:      
       # - APP_CONF_OVERRIDE={"SCAN_SUBNETS":"['192.168.1.0/24 --interface=eth1']","GRAPHQL_PORT":"20223","UI_theme":"Light"}
       - TZ=${TZ}
       - PORT=${PORT}      
       # ❗ DANGER ZONE BELOW - Setting ALWAYS_FRESH_INSTALL=true will delete the content of the /db & /config folders
-      - ALWAYS_FRESH_INSTALL=${ALWAYS_FRESH_INSTALL}
+      # - ALWAYS_FRESH_INSTALL=${ALWAYS_FRESH_INSTALL}
       # - LOADED_PLUGINS=["DHCPLSS","PIHOLE","ASUSWRT","FREEBOX"]
       
